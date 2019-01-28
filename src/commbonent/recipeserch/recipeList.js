@@ -4,7 +4,6 @@ import Recipe from "../recpie/recpie";
 export default class recipesearch extends Component {
   render() {
     const { recipes } = this.props;
-    console.log(recipes);
 
     return (
       <React.Fragment>
@@ -16,8 +15,12 @@ export default class recipesearch extends Component {
             </div>
           </div>
           {/* end title */}
+          <div className="row">
+            {recipes.map(recipe => {
+              return <Recipe key={recipe.recipe_id} recipe={recipe} />;
+            })}
+          </div>
         </div>
-        <Recipe />
       </React.Fragment>
     );
   }
